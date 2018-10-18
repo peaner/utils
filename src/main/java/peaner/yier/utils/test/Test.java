@@ -1,7 +1,12 @@
 package peaner.yier.utils.test;
 
+import org.springframework.cglib.proxy.Enhancer;
+import org.springframework.cglib.proxy.MethodInterceptor;
+import org.springframework.cglib.proxy.MethodProxy;
 import peaner.yier.utils.excel.ExcelUtils;
 import peaner.yier.utils.excel.core.Constants;
+
+import java.lang.reflect.Method;
 
 /**
  * @Author: lilongzhou
@@ -38,7 +43,24 @@ public class Test {
         ExcelUtils.writeToExcel(datas, "j:\\templates.xlsx", "j:\\test.xlsx", "newVersion");*/
 
         //ExcelUtils.readFromExcel( "j:\\test.xlsx", Constants.NEW_VERSION);
-        ExcelUtils.excelToHtml("j:\\test.xls", Constants.PRE_VERSION);
+        //ExcelUtils.excelToHtml("j:\\test.xls", Constants.PRE_VERSION);
+        while (true) {
+            Enhancer enhancer = new Enhancer();
+            enhancer.setSuperclass(OOMObject.class);
+            enhancer.setUseCache(false);
+            enhancer.setCallback(new MethodInterceptor() {
+                @Override
+                public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+                    return methodProxy.invokeSuper(objects, args);
+                }
+            });
+            enhancer.create();
+        }
+
+    }
+
+    static class OOMObject {
+
     }
 
 }
