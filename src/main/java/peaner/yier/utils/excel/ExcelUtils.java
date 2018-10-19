@@ -67,7 +67,7 @@ public class ExcelUtils {
 
     /**
      * 从excel读取数据(区分excel版本)
-     * @param sourceFilePath excel读取文件
+     * @param sourceFilePath Excel文件路径
      * @param type excel版本类型  2007年以前的  preVersion  2007年以后的 newVersion
      * @return
      */
@@ -83,9 +83,9 @@ public class ExcelUtils {
     }
 
     /**
-     * 将excel表转换成html
-     * @param sourceFilePath
-     * @param type
+     * 将excel表转换成html(区分excel版本)
+     * @param sourceFilePath Excel文件路径
+     * @param type excel版本类型  2007年以前的  preVersion  2007年以后的 newVersion
      * @return
      */
     public static String excelToHtml(String sourceFilePath, String type) {
@@ -144,7 +144,7 @@ public class ExcelUtils {
     }
 
     /**
-     *
+     * 写入新版本的excel
      * @param sourceFilePath Excel模板文件路径
      * @param dataVOS 待写数据
      * @param targetFilePath Excel生成文件路径
@@ -185,7 +185,7 @@ public class ExcelUtils {
 
     /**
      * 从老版本文件读取数据
-     * @param sourceFilePath
+     * @param sourceFilePath Excel文件路径
      * @return
      */
     private static List<List<ExcelDataVO>> readFromExcelOld(String sourceFilePath) {
@@ -229,7 +229,7 @@ public class ExcelUtils {
 
     /**
      * 从新版本文件读取数据
-     * @param sourceFilePath
+     * @param sourceFilePath Excel文件路径
      * @return
      */
     private static List<List<ExcelDataVO>> readFromExcelNew(String sourceFilePath) {
@@ -281,8 +281,8 @@ public class ExcelUtils {
     }
 
     /**
-     *
-     * @param sourceFilePath
+     * 将旧版本excel转换成html
+     * @param sourceFilePath Excel文件路径
      * @return
      */
     private static String excelToHtmlOld(String sourceFilePath) {
@@ -323,8 +323,8 @@ public class ExcelUtils {
     }
 
     /**
-     *
-     * @param sourceFilePath
+     * 将新版本excel转换成html
+     * @param sourceFilePath Excel文件路径
      * @return
      */
     private static String excelToHtmlNew(String sourceFilePath) {
