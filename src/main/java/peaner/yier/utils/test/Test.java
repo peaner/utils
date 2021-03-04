@@ -1,23 +1,45 @@
 package peaner.yier.utils.test;
 
-import org.springframework.cglib.proxy.Enhancer;
-import org.springframework.cglib.proxy.MethodInterceptor;
-import org.springframework.cglib.proxy.MethodProxy;
-import peaner.yier.utils.excel.ExcelUtils;
-import peaner.yier.utils.excel.core.Constants;
-
-import java.lang.reflect.Method;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @Author: lilongzhou
  * @Description:
  * @Date: Created in 15:19 2018/8/23
  */
+@Slf4j
 public class Test {
+
 
     public static void main(String[] args) {
 
-        /*ExcelDataVO ExcelDataVO = new ExcelDataVO();
+        try {
+            String desc = "1111&&";
+            System.out.println(desc.substring(0, desc.lastIndexOf("&")));
+
+            // 0 , 3
+            /*Map<Integer, Integer> map = new HashMap<>();
+            for (int i = 0; i < 10000; i++) {
+                Integer random = RandomUtils.nextInt(0, 4); //[1,100]
+                if (map.containsKey(random)) {
+                    map.put(random, map.get(random) + 1);
+                } else {
+                    map.put(random, 1);
+                }
+            }
+
+            for (Map.Entry entry : map.entrySet()) {
+                System.out.println("random key:" + entry.getKey() + ", count: " + entry.getValue());
+            }*/
+        } catch (Exception e) {
+            log.error("error" + e);
+        }
+
+    }
+
+    /*public static void main(String[] args) {
+
+        *//*ExcelDataVO ExcelDataVO = new ExcelDataVO();
         List<ExcelDataVO> datas = new ArrayList<ExcelDataVO>();
 
         //找到第2行第2列的company，用"XXX有限公司"替换掉company
@@ -40,7 +62,7 @@ public class Test {
         //d:\\template.xls为Excel模板文件，d:\\test.xls为程序根据Excel模板文件生成的新文件
         //ExcelUtils.replaceModel(datas, "j:\\templates.xls", "j:\\test.xls");
 
-        ExcelUtils.writeToExcel(datas, "j:\\templates.xlsx", "j:\\test.xlsx", "newVersion");*/
+        ExcelUtils.writeToExcel(datas, "j:\\templates.xlsx", "j:\\test.xlsx", "newVersion");*//*
 
         //ExcelUtils.readFromExcel( "j:\\test.xlsx", Constants.NEW_VERSION);
         //ExcelUtils.excelToHtml("j:\\test.xls", Constants.PRE_VERSION);
@@ -57,7 +79,7 @@ public class Test {
             enhancer.create();
         }
 
-    }
+    }*/
 
     static class OOMObject {
 

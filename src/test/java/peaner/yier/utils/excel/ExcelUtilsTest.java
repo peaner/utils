@@ -1,13 +1,14 @@
 package peaner.yier.utils.excel;
 
+import com.alibaba.fastjson.JSON;
+import org.apache.commons.collections4.MapUtils;
 import org.junit.Test;
 import peaner.yier.utils.excel.core.Constants;
 import peaner.yier.utils.excel.core.ExcelDataVO;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-
-import static org.junit.Assert.*;
+import java.util.Map;
 
 /**
  * @Author: lilongzhou
@@ -19,7 +20,16 @@ public class ExcelUtilsTest {
     @Test
     public void writeToExcel() {
 
-        List<ExcelDataVO> datas = new ArrayList<ExcelDataVO>();
+        List<List<ExcelDataVO>> lists = ExcelUtils.readFromExcel( "/Users/lilongzhou/Desktop/liveroom.xlsx", Constants.NEW_VERSION);
+
+        for (List<ExcelDataVO> list : lists) {
+            for (ExcelDataVO excelDataVO : list) {
+                System.out.println(JSON.toJSONString(excelDataVO));
+            }
+        }
+
+
+        /*List<ExcelDataVO> datas = new ArrayList<ExcelDataVO>();
 
         //找到第2行第2列的company，用"XXX有限公司"替换掉company
         ExcelDataVO vo1 = new ExcelDataVO();
@@ -42,7 +52,7 @@ public class ExcelUtilsTest {
         ExcelUtils.writeToExcel(datas, "j:\\templates.xlsx", "j:\\test.xlsx", Constants.PRE_VERSION);
 
         ExcelUtils.readFromExcel( "j:\\test.xlsx", Constants.NEW_VERSION);
-        ExcelUtils.excelToHtml("j:\\test.xls", Constants.PRE_VERSION);
+        ExcelUtils.excelToHtml("j:\\test.xls", Constants.PRE_VERSION);*/
 
     }
 
@@ -53,4 +63,13 @@ public class ExcelUtilsTest {
     @Test
     public void excelToHtml() {
     }
+
+    public static void main(String[] args) {
+        Map<String, Object> body = new HashMap<>();
+        body.put("count", "3000000001");
+        int count = MapUtils.getInteger(body, "count", 0);
+        System.out.println(count);
+    }
+
+
 }
