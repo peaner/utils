@@ -2,6 +2,11 @@ package peaner.yier.utils.test;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * @Author: lilongzhou
  * @Description:
@@ -13,12 +18,36 @@ public class Test {
 
     public static void main(String[] args) {
 
-        try {
-            String desc = "1111&&";
-            System.out.println(desc.substring(0, desc.lastIndexOf("&")));
+
+        Set<String> set = new HashSet<>();
+        set.add("1");
+        set.add("2");
+        set.add("3");
+
+        List<String> a = new ArrayList<>(set);
+
+        for (String value : a) {
+            System.out.println(value);
+        }
+
+
+        /*try {
+
+            List<String> uidList = new ArrayList<>();
+            uidList.add("1");
+            uidList.add("2");
+            uidList.add("3");
+            uidList.add("4");
+            uidList.add("5");
+
+            for (int i = 0; i < 10000; i++) {
+                Integer random = RandomUtils.nextInt(0, uidList.size()); //[1,100]
+                System.out.println(uidList.get(random));
+            }
+
 
             // 0 , 3
-            /*Map<Integer, Integer> map = new HashMap<>();
+            *//*Map<Integer, Integer> map = new HashMap<>();
             for (int i = 0; i < 10000; i++) {
                 Integer random = RandomUtils.nextInt(0, 4); //[1,100]
                 if (map.containsKey(random)) {
@@ -30,10 +59,10 @@ public class Test {
 
             for (Map.Entry entry : map.entrySet()) {
                 System.out.println("random key:" + entry.getKey() + ", count: " + entry.getValue());
-            }*/
+            }*//*
         } catch (Exception e) {
             log.error("error" + e);
-        }
+        }*/
 
     }
 

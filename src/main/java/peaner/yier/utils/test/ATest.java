@@ -17,10 +17,24 @@ import java.util.stream.Collectors;
 public class ATest {
 
     public static void main(String[] args) {
+
+        // String p = "{uid : 123456}";
+
+//        Date date = new Date();
+//        Date startTime = new DateTime(date).withMillisOfDay(0).toDate();
+//        Date endTime = new DateTime(date).plusDays(1).withMillisOfDay(0).toDate();
+//        System.out.println("startTime:" + startTime);
+//        System.out.println("endTime:" + endTime);
+
+
+        //Integer winnerCost = new BigDecimal(String.valueOf(100.45)).setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
+
+        // System.out.println(winnerCost);
         ATest aTest = new ATest();
         List<AppInfo> list = aTest.buildInfo();
         // JSON.toJSONString(list);
-        list = list.stream().sorted(Comparator.comparing(AppInfo::getCreateTime).reversed()).sorted(Comparator.comparing(AppInfo::getFriendCount).reversed()).sorted(Comparator.comparing(AppInfo::getPlayGuess).reversed()).collect(Collectors.toList());
+        //list = list.stream().sorted(Comparator.comparing(AppInfo::getCreateTime).reversed()).sorted(Comparator.comparing(AppInfo::getFriendCount).reversed()).sorted(Comparator.comparing(AppInfo::getPlayGuess).reversed()).collect(Collectors.toList());
+        list = list.stream().sorted(Comparator.comparing(AppInfo::getCreateTime)).collect(Collectors.toList());
         System.out.println(JSON.toJSONString(list));;
     }
 
