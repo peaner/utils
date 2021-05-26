@@ -3,9 +3,7 @@ package peaner.yier.utils.test;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @Author: lilongzhou
@@ -18,8 +16,14 @@ public class Test {
 
     public static void main(String[] args) {
 
+//        test1();
+//        test2();
+//        test3();
+        test4();
 
-        Set<String> set = new HashSet<>();
+
+
+        /*Set<String> set = new HashSet<>();
         set.add("1");
         set.add("2");
         set.add("3");
@@ -28,7 +32,7 @@ public class Test {
 
         for (String value : a) {
             System.out.println(value);
-        }
+        }*/
 
 
         /*try {
@@ -65,6 +69,54 @@ public class Test {
         }*/
 
     }
+
+    private static void test1() {
+        List<Integer> list = new ArrayList<>();
+        long startTime = System.currentTimeMillis();
+        final Integer N = 10000000;
+        for (int i = 0; i < N; i++) {
+            list.add(i);
+        }
+        long endTime = System.currentTimeMillis();
+        System.out.println("使用时长1：" + (endTime - startTime));
+    }
+
+    private static void test2() {
+        final Integer N = 10000000;
+        List<Integer> list = new ArrayList<>(N);
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < N; i++) {
+            list.add(i);
+        }
+        long endTime = System.currentTimeMillis();
+        System.out.println("使用时长2：" + (endTime - startTime));
+    }
+
+    private static void test3() {
+        final Integer N = 10000000;
+        ArrayList arrayList = new ArrayList();
+        long startTime = System.currentTimeMillis();
+        arrayList.ensureCapacity(N);
+        for (int i = 0; i < N; i++) {
+            arrayList.add(i);
+        }
+        long endTime = System.currentTimeMillis();
+        System.out.println("使用时长3：" + (endTime - startTime));
+    }
+
+    private static void test4() {
+        final Integer N = 10000000;
+        ArrayList arrayList = new ArrayList(N);
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < N; i++) {
+            arrayList.add(i);
+        }
+        long endTime = System.currentTimeMillis();
+        System.out.println("使用时长4：" + (endTime - startTime));
+    }
+
+
+
 
     /*public static void main(String[] args) {
 

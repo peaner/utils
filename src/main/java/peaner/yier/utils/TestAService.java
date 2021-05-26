@@ -1,6 +1,7 @@
 package peaner.yier.utils;
 
 import lombok.extern.slf4j.Slf4j;
+import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
 import peaner.yier.utils.controller.TestBController;
 
@@ -25,7 +26,7 @@ public class TestAService {
         messageList.add("你在幹嘛呀");
         messageList.add("抓住一隻小可愛！");
         System.out.println(JSON.toJSONString(messageList));*/
-        String str1 = new StringBuilder("李隆洲").append("李子煜").toString();
+        /*String str1 = new StringBuilder("李隆洲").append("李子煜").toString();
         System.out.println(str1.intern() == str1);
 
 
@@ -38,7 +39,9 @@ public class TestAService {
         n |= n >>> 4;
         n |= n >>> 8;
         n |= n >>> 16;
-        System.out.println(n);
+        System.out.println(n);*/
+        DateTime dateTime = new DateTime();
+        System.out.println(dateTime.getHourOfDay());
 
 
 

@@ -1,7 +1,6 @@
 package peaner.yier.utils.common.util;
 
 import org.joda.time.DateTime;
-import org.joda.time.Days;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -198,8 +197,8 @@ public class DateUtil {
         /*DateTime dateTime = DateTime.parse("2020-08-02");
         System.out.println(dateTime.withDayOfWeek(1).toDate());*/
 
-        Date startDate = DateTime.parse("2020-08-01").toDate();
-        Date endDate = DateTime.parse("2020-08-31").toDate();
+        Date startDate = DateTime.parse("2021-05-13").toDate();
+        Date endDate = DateTime.parse("2021-05-26").toDate();
         System.out.println(startDate);
         System.out.println(endDate);
         System.out.println("-------------");
@@ -210,16 +209,23 @@ public class DateUtil {
         System.out.println("-------------");
 
         for (int i = 0; i < date.size(); i += 2) {
-            int betweenDay = Days.daysBetween(new DateTime(date.get(i)).withMillisOfDay(0).toDateTime(), new DateTime(date.get(i + 1)).plusDays(1).withMillisOfDay(0).toDateTime()).getDays();
-            if (betweenDay < 7 && i < 1) {
-                System.out.println("aaaa1 [" + date.get(i) + "], [" + date.get(i + 1) + "]");
-                System.out.println("after1 [" + getDateStr(new DateTime(date.get(i)).plusDays(betweenDay-7).toDate().getTime()) + "], [" + date.get(i + 1) + "]");
-            } else if (betweenDay < 7 && i >= date.size() - 2) {
-                System.out.println("bbbb2:[" + date.get(i) + "], [" + date.get(i + 1) + "]");
-                continue;
-            }
+            // int betweenDay = Days.daysBetween(new DateTime(date.get(i)).withMillisOfDay(0).toDateTime(), new DateTime(date.get(i + 1)).plusDays(1).withMillisOfDay(0).toDateTime()).getDays();
+            String startTime = date.get(i);
+            String endTime = date.get(i + 1);
 
-            System.out.println("[" + date.get(i) + "], [" + date.get(i + 1) + "]");
+            /*if (betweenDay < 7 && i < 1) {
+                // System.out.println("aaaa1 [" + date.get(i) + "], [" + date.get(i + 1) + "]");
+                startTime = date.get(i);
+                // System.out.println("after1 [" + getDateStr(new DateTime(date.get(i)).plusDays(betweenDay-7).toDate().getTime()) + "], [" + date.get(i + 1) + "]");
+            } else if (betweenDay < 7 && i >= date.size() - 2) {
+                startTime = date.get(i);
+                //System.out.println("bbbb2:[" + date.get(i) + "], [" + date.get(i + 1) + "]");
+                continue;
+            } else {
+                // continue;
+            }*/
+
+            System.out.println("[" + startTime + "], [" + endTime + "]");
         }
 
     }
